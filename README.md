@@ -28,27 +28,40 @@ git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git
 # 如果子模块克隆失败，可以手动更新
 cd CosyVoice
 git submodule update --init --recursive
-cd ..
+
 ```
 
 ### 3. 下载CosyVoice2模型
 
 ```bash
 # 确保已在CosyVoice目录中创建pretrained_models目录
-mkdir -p CosyVoice/pretrained_models
+mkdir -p pretrained_models
 
-# 下载模型
-git clone https://www.modelscope.cn/iic/CosyVoice2-0.5B.git CosyVoice/pretrained_models/CosyVoice2-0.5B
+# git模型下载，请确保已安装git lfs
+git clone https://www.modelscope.cn/iic/CosyVoice2-0.5B.git pretrained_models/CosyVoice2-0.5B
 ```
 
-### 4. 安装依赖
+### 4. 创建Conda环境和安装依赖
+
+```bash
+conda create -n cosyvoice -y python=3.10
+conda activate cosyvoice
+# pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
+conda install -y -c conda-forge pynini==2.1.5
+pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
+
+# If you encounter sox compatibility issues
+# ubuntu
+sudo apt-get install sox libsox-dev
+# centos
+sudo yum install sox sox-devel
+```
 
 ```bash
 # 安装应用依赖
+cd ..
 pip install -r requirements.txt
 
-# 安装CosyVoice的依赖
-pip install -r CosyVoice/requirements.txt
 ```
 
 ### 5. 配置环境变量
