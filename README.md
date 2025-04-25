@@ -15,8 +15,8 @@
 ### 1. 克隆本仓库
 
 ```bash
-git clone https://github.com/yourusername/ai-voice-story.git
-cd ai-voice-story
+git clone https://github.com/klay-liu/AI-Voice-Story.git
+cd AI-Voice-Story
 ```
 
 ### 2. 下载CosyVoice依赖库
@@ -77,7 +77,7 @@ mkdir -p assets
 python app.py
 ```
 
-然后在浏览器中访问显示的URL（通常是http://127.0.0.1:7860）。
+然后在浏览器中访问显示的URL（通常是http://127.0.0.1:7860 ）。
 
 ### 步骤1：生成故事
 
